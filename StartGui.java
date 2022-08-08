@@ -1,6 +1,6 @@
 import java.lang.*;
 
-public class Start
+public class StartGui
 {
 	public static void main(String args[])
 	{
