@@ -12,11 +12,13 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
     JButton logIn,back;
     JTextField txt;
     JPasswordField pf;
+	int n;
 
     Frame2()
     {
-        super("Admin Login Page");
-		this.setSize(800, 600);
+        super("Frame2 Admin Login Page");
+		n++;
+		this.setSize(800, 530);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		panel = new JPanel();
@@ -30,43 +32,46 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
         panel.add(bgimg);
 
         admin=new JLabel("Please Enter Your Name And Password To Log In");
-        admin.setBounds(180,145,600,40);
-		admin.setForeground(Color.yellow);
-		admin.setFont(new Font("Times New Roman",Font.PLAIN,23));
+        admin.setBounds(100,60,900,40);
+		admin.setForeground(Color.white);
+		admin.setFont(new Font("Times New Roman",Font.PLAIN,30));
 		bgimg.add(admin);
 
         name=new JLabel("Username: ");
-        name.setBounds(280,230,100,30);
-		name.setForeground(Color.yellow);
-		name.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        name.setBounds(210,180,140,30);
+		name.setForeground(Color.white);
+		name.setFont(new Font("Times New Roman",Font.PLAIN,24));
 		bgimg.add(name);
         
         txt=new JTextField();
-        txt.setBounds(400,230,100,30);
+        txt.setBounds(400,180,160,30);
+		txt.setFont(new Font("Times New Roman",Font.BOLD,20));
+		txt.addActionListener(this);
 		txt.addKeyListener(this);
         bgimg.add(txt);
 
         pass=new JLabel("Password: ");
-        pass.setBounds(280,280,100,30);
-		pass.setForeground(Color.yellow);
-		pass.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        pass.setBounds(210,250,140,30);
+		pass.setForeground(Color.white);
+		pass.setFont(new Font("Times New Roman",Font.PLAIN,24));
 		bgimg.add(pass);
         
 		pf=new JPasswordField();
-		pf.setBounds(400, 280, 100, 30);
+		pf.setBounds(400, 250, 160, 30);
+		pf.setFont(new Font("Times New Roman",Font.BOLD,20));
 		pf.addKeyListener(this);
 		pf.setEchoChar('*');
 		bgimg.add(pf);
 
         logIn=new JButton("Log In");
-        logIn.setBounds(440,330,80,30);
+        logIn.setBounds(440,330,100,35);
         logIn.addActionListener(this);
         logIn.addMouseListener(this);
 		logIn.setFocusable(false);
         bgimg.add(logIn);
 
         back=new JButton("Back");
-        back.setBounds(340,330,65,30);
+        back.setBounds(240,330,100,35);
         back.addActionListener(this);
         back.addMouseListener(this);
 		back.setFocusable(false);
@@ -87,8 +92,8 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 			//String s2 = new String(pf.getPassword());
             //String s2= pf.getPassword();
 			//String s2= String.valueOf(pf.getPassword());
-
-			if(s1.equals("a") && s2.equals("a"))
+			
+			if(s1.equals("Admin") && s2.equals("AdminPass"))
 			{
                 Frame3 f3 = new Frame3(s1,s2, this);
                 f3.setVisible(true);
@@ -100,8 +105,8 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 				showMessageDialog(null, "Invalid Username or password!");
 				txt.setText("");
 				pf.setText("");
-            }         
-			
+				txt.requestFocus();
+            }         			
 		}
         else if(ae.getSource()==back) 
         {
@@ -110,7 +115,6 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
             this.setVisible(false);
         }
     }
-
     public void mouseClicked(MouseEvent me){}
 	public void mousePressed(MouseEvent me){}
 	public void mouseReleased(MouseEvent me){}
@@ -140,9 +144,7 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 			logIn.setBackground(Color.WHITE);
 			logIn.setForeground(Color.BLACK);
 		}
-	
 	}
-
 	public void keyTyped(KeyEvent k){}
 	public void keyPressed(KeyEvent k){
 
@@ -167,8 +169,10 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 				showMessageDialog(null, "Invalid Username or password!");
 				txt.setText("");
 				pf.setText("");
+				txt.requestFocus();
             }      	
 		}
 	}
 	public void keyReleased(KeyEvent k){}
+	 
 }
