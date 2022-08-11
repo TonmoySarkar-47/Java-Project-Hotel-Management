@@ -12,8 +12,8 @@ public class Frame1 extends JFrame implements ActionListener,MouseListener
 
     Frame1()
     {
-        super("Hotel Name");
-        this.setSize(800,600);
+        super("Frame1");
+        this.setSize(800,500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         panel=new JPanel();
@@ -26,20 +26,20 @@ public class Frame1 extends JFrame implements ActionListener,MouseListener
         this.add(bgImg);
        
         label = new JLabel("Welcome To Our Hotel");
-		label.setBounds(240,180,500,70);
+		label.setBounds(240,110,500,70);
 		label.setForeground(Color.WHITE);
 		label.setFont(new Font("Script MT Bold",Font.PLAIN,40));
 		bgImg.add(label);
 
         guestB=new JButton("Book Room");
-        guestB.setBounds(350,400,110,40);
+        guestB.setBounds(350,350,110,35);
         guestB.addActionListener(this);
         guestB.addMouseListener(this);
         guestB.setFocusable(false);
         bgImg.add(guestB);
 
         adminB=new JButton("Admin Login");
-        adminB.setBounds(350,320,110,40);
+        adminB.setBounds(350,280,110,35);
         adminB.addActionListener(this);
         adminB.addMouseListener(this);
         adminB.setFocusable(false);
