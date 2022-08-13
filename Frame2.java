@@ -7,8 +7,8 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyListener
 {
     JPanel panel;
-    ImageIcon img,showPassIcon;
-    JLabel name,pass,admin,bgimg,key;
+    ImageIcon img,showPassIcon,showPassIcon2,passKeyIcon,userIcon;
+    JLabel name,pass,admin,bgimg,key,passKeyLabel,userLabel;
     JButton logIn,back,showPassButton;
     JTextField txt;
     JPasswordField pf;
@@ -25,7 +25,7 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		panel.setLayout(null);
 		panel.addKeyListener(this);
         
-        img=new ImageIcon(this.getClass().getResource("Frame2.png"));
+        img=new ImageIcon(this.getClass().getResource("Frame2.jpg"));
         bgimg=new JLabel(img);
         bgimg.setSize(this.getSize());
 		bgimg.addKeyListener(this);
@@ -50,6 +50,11 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		txt.addKeyListener(this);
         bgimg.add(txt);
 
+		userIcon=new ImageIcon(this.getClass().getResource("userIcon.png"));
+		userLabel=new JLabel(userIcon);
+		userLabel.setBounds(340,175,60,40);
+		bgimg.add(userLabel);
+
         pass=new JLabel("Password: ");
         pass.setBounds(210,250,140,30);
 		pass.setForeground(Color.white);
@@ -63,7 +68,13 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		pf.setEchoChar('*');
 		bgimg.add(pf);
 
+		passKeyIcon=new ImageIcon(this.getClass().getResource("passKey.png"));
+		passKeyLabel=new JLabel(passKeyIcon);
+		passKeyLabel.setBounds(340,245,60,40);
+		bgimg.add(passKeyLabel);
+
 		showPassIcon=new ImageIcon(this.getClass().getResource("showPassIcon.jpg"));
+		showPassIcon2=new ImageIcon(this.getClass().getResource("showPass2.jpg"));
 		showPassButton=new JButton(showPassIcon);
 		showPassButton.setBounds(558,250,50,30);
 		showPassButton.addMouseListener(this);
@@ -71,14 +82,14 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		bgimg.add(showPassButton);
 
         logIn=new JButton("Log In");
-        logIn.setBounds(440,330,100,35);
+        logIn.setBounds(490,330,100,35);
         logIn.addActionListener(this);
         logIn.addMouseListener(this);
 		logIn.setFocusable(false);
         bgimg.add(logIn);
 
         back=new JButton("Back");
-        back.setBounds(240,330,100,35);
+        back.setBounds(270,330,100,35);
         back.addActionListener(this);
         back.addMouseListener(this);
 		back.setFocusable(false);
@@ -140,6 +151,7 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		else if(me.getSource()==showPassButton)
 		{
 			pf.setEchoChar((char)0);
+			showPassButton.setIcon(showPassIcon2);
 		}
 
 	}
@@ -158,6 +170,7 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		else if(me.getSource()==showPassButton)
 		{
 			pf.setEchoChar('*');
+			showPassButton.setIcon(showPassIcon);
 		}
 	}
 	public void keyTyped(KeyEvent k){}
