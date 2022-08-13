@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.lang.*;
 import java.awt.event.*;
 import javax.swing.*;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -94,8 +95,7 @@ public class Frame1 extends JFrame implements ActionListener,MouseListener
 		{
 			adminB.setBackground(Color.WHITE);
 			adminB.setForeground(Color.BLACK);
-		}
-	
+		}	
 	}
 }
 
