@@ -7,9 +7,9 @@ import static javax.swing.JOptionPane.showMessageDialog;
 public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyListener
 {
     JPanel panel;
-    ImageIcon img;
+    ImageIcon img,showPassIcon;
     JLabel name,pass,admin,bgimg,key;
-    JButton logIn,back;
+    JButton logIn,back,showPassButton;
     JTextField txt;
     JPasswordField pf;
 	int n;
@@ -31,10 +31,10 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		bgimg.addKeyListener(this);
         panel.add(bgimg);
 
-        admin=new JLabel("Please Enter Your Name And Password To Log In");
+        admin=new JLabel("Enter Your Name And Password To Log In");
         admin.setBounds(100,60,900,40);
 		admin.setForeground(Color.white);
-		admin.setFont(new Font("Times New Roman",Font.PLAIN,30));
+		admin.setFont(new Font("Script MT Bold",Font.BOLD,30));
 		bgimg.add(admin);
 
         name=new JLabel("Username: ");
@@ -44,7 +44,7 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		bgimg.add(name);
         
         txt=new JTextField();
-        txt.setBounds(400,180,160,30);
+        txt.setBounds(400,180,210,30);
 		txt.setFont(new Font("Times New Roman",Font.BOLD,20));
 		txt.addActionListener(this);
 		txt.addKeyListener(this);
@@ -62,6 +62,13 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		pf.addKeyListener(this);
 		pf.setEchoChar('*');
 		bgimg.add(pf);
+
+		showPassIcon=new ImageIcon(this.getClass().getResource("showPassIcon.jpg"));
+		showPassButton=new JButton(showPassIcon);
+		showPassButton.setBounds(558,250,50,30);
+		showPassButton.addMouseListener(this);
+		showPassButton.setFocusable(false);
+		bgimg.add(showPassButton);
 
         logIn=new JButton("Log In");
         logIn.setBounds(440,330,100,35);
@@ -93,10 +100,10 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
             //String s2= pf.getPassword();
 			//String s2= String.valueOf(pf.getPassword());
 			
-			if(s1.equals("Admin") && s2.equals("AdminPass"))
+			if(s1.equals("a") && s2.equals("a"))
 			{
-                Frame3 f3 = new Frame3(s1,s2, this);
-                f3.setVisible(true);
+                Frame3p f3p= new Frame3p();
+                f3p.setVisible(true);
                 this.setVisible(false);
 				showMessageDialog(null,"Log In Successful! ");
 			}
@@ -130,6 +137,10 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 			logIn.setBackground(Color.black);
 			logIn.setForeground(Color.GREEN);
 		}
+		else if(me.getSource()==showPassButton)
+		{
+			pf.setEchoChar((char)0);
+		}
 
 	}
 	public void mouseExited(MouseEvent me)
@@ -143,6 +154,10 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 		{
 			logIn.setBackground(Color.WHITE);
 			logIn.setForeground(Color.BLACK);
+		}
+		else if(me.getSource()==showPassButton)
+		{
+			pf.setEchoChar('*');
 		}
 	}
 	public void keyTyped(KeyEvent k){}
@@ -159,8 +174,8 @@ public class Frame2 extends JFrame implements ActionListener,MouseListener,KeyLi
 
 			if(s1.equals("a") && s2.equals("a"))
 			{
-                Frame3 f3 = new Frame3(s1,s2, this);
-                f3.setVisible(true);
+                Frame3p f3p = new Frame3p();
+                f3p.setVisible(true);
                 this.setVisible(false);
 				showMessageDialog(null,"Log In Successful! ");
 			}
