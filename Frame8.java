@@ -95,7 +95,7 @@ public class Frame8 extends JFrame implements ActionListener, MouseListener
 
         totalBillLabel=new JLabel("Total Bill: ");
         totalBillLabel.setBounds(140,350,200,35);
-		totalBillLabel.setForeground(Color.white);
+		totalBillLabel.setForeground(Color.green);
 		totalBillLabel.setFont(new Font("Times New Roman",Font.BOLD,20));
         bgImgLabel.add(totalBillLabel);
 
@@ -109,7 +109,7 @@ public class Frame8 extends JFrame implements ActionListener, MouseListener
         
         billNoLabel=new JLabel("Bill No: ");
         billNoLabel.setBounds(490,350,200,35);
-		billNoLabel.setForeground(Color.white);
+		billNoLabel.setForeground(Color.MAGENTA);
 		billNoLabel.setFont(new Font("Times New Roman",Font.BOLD,20));
         bgImgLabel.add(billNoLabel);
 
@@ -122,7 +122,7 @@ public class Frame8 extends JFrame implements ActionListener, MouseListener
 
         changeLabel=new JLabel("Change: ");
         changeLabel.setBounds(140,400,200,35);
-		changeLabel.setForeground(Color.white);
+		changeLabel.setForeground(Color.orange);
 		changeLabel.setFont(new Font("Times New Roman",Font.BOLD,20));
         bgImgLabel.add(changeLabel);
 
